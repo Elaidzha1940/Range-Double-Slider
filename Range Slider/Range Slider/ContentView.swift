@@ -30,7 +30,7 @@ struct Slider1 : View {
     var totalWidth = UIScreen.main.bounds.width - 80
     
     var right1: String {
-            
+        
         let equal1 = self.width / self.totalWidth
         
         let km = Int(equal1 / 0.09)
@@ -44,3 +44,71 @@ struct Slider1 : View {
         let km = Int(equal1 / 0.09)
         return "\(km) км"
     }
+    
+    var body: some View {
+        
+        VStack {
+            HStack {
+                Text("Расстояние от меня")
+                    .font(.headline)
+                    .fontWeight(.bold)
+                   
+                Spacer()
+                
+                Text("\(right1) - \(left1)")
+                    .fontWeight(.bold)
+                    .foregroundColor(.elements(.Epink))
+            }
+            
+            ZStack(alignment: .leading) {
+                Rectangle()
+                    .fill(Color.elements(.slider))
+                    .frame(height: 4)
+                
+                Rectangle()
+                    .fill(Color.elements(.Epink))
+                    .frame(width: self.width1 - self.width, height: 6)
+                    .offset(x: self.width + 28)
+                
+                
+                HStack(spacing: 0) {
+                    
+                    Circle()
+                        .fill(Color.elements(.Epink))
+                        .frame(width: 28, height: 28)
+                        .offset(x: self.width)
+                        .gesture(
+                            
+                            DragGesture()
+                                .onChanged({ (value) in
+                                    
+                                    if value.location.x >= 0 && value.location.x <= self.width1 {
+                                        
+                                        self.width = value.location.x
+                                    }
+                                })
+                        )
+                    
+                    Circle()
+                        .fill(Color.elements(.Epink))
+                        .frame(width: 28, height: 28)
+                        .offset(x: self.width1)
+                        .gesture(
+                            
+                            DragGesture()
+                                .onChanged({ (value) in
+                                    
+                                    if value.location.x <= self.totalWidth && value.location.x >= self.width {
+                                        
+                                        self.width1 = value.location.x
+                                    }
+                                    
+                                })
+                        )
+                }
+            }
+        }
+        .padding()
+    }
+}
+
