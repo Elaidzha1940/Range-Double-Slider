@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SliderComponent1: View {
+struct SliderComponent: View {
     
     var totalWidht = UIScreen.main.bounds.width - 80
     
@@ -17,9 +17,9 @@ struct SliderComponent1: View {
     }
 }
 
-struct SliderComponent1_Previews: PreviewProvider {
+struct SliderComponent_Previews: PreviewProvider {
     static var previews: some View {
-            SliderComponent1()
+            SliderComponent()
     }
 }
 
@@ -57,16 +57,16 @@ struct Slider1 : View {
                 
                 Text("\(right1) - \(left1)")
                     .fontWeight(.bold)
-                    .foregroundColor(.elements(.Epink))
+                    .foregroundColor(.red)
             }
             
             ZStack(alignment: .leading) {
                 Rectangle()
-                    .fill(Color.elements(.slider))
+                    .fill(Color.red)
                     .frame(height: 4)
                 
                 Rectangle()
-                    .fill(Color.elements(.Epink))
+                    .fill(Color.brown)
                     .frame(width: self.width1 - self.width, height: 6)
                     .offset(x: self.width + 28)
                 
@@ -74,7 +74,7 @@ struct Slider1 : View {
                 HStack(spacing: 0) {
                     
                     Circle()
-                        .fill(Color.elements(.Epink))
+                        .fill(Color.brown)
                         .frame(width: 28, height: 28)
                         .offset(x: self.width)
                         .gesture(
@@ -90,7 +90,7 @@ struct Slider1 : View {
                         )
                     
                     Circle()
-                        .fill(Color.elements(.Epink))
+                        .fill(Color.blue)
                         .frame(width: 28, height: 28)
                         .offset(x: self.width1)
                         .gesture(

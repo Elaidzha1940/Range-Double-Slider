@@ -11,7 +11,7 @@ import SwiftUI
 struct Range_SliderApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            SliderComponent()
         }
     }
 }
